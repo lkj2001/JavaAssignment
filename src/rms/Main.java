@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main 
 {	
-	Order o = new Order();
+	
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -14,6 +14,7 @@ public class Main
 		double totalOrder = 0.00;
 
 		RMS u = new RMS();
+		Order order = new Order();
 		
 		ArrayList<Menu> menus = new ArrayList<Menu>();
 		
@@ -33,13 +34,7 @@ public class Main
 			}
 			else if(num == 1)
 			{ 
-				Iterator<Menu> menuIt = menus.iterator(); //Detects and print out the menu.add items
-				System.out.println("		MENU");
-		        while(menuIt.hasNext()) 
-		        {
-		        	
-		            System.out.println(menuIt.next()); //viewMenu
-		        }
+				order.viewMenu(menus);
 		        System.out.println("Press 1 to Order \nPress 2 to Go back" );
 		        numOrder = sc.nextInt();
 		        
@@ -75,13 +70,7 @@ public class Main
 					num1 = sc.nextInt();
 					if (num1 == 1)
 					{
-						Iterator<Menu> menuIt = menus.iterator(); //Detects and print out the menu.add items
-						System.out.println("		MENU");
-				        while(menuIt.hasNext()) 
-				        {
-				        	
-				            System.out.println(menuIt.next()); //viewMenu				            
-				        }
+						order.viewMenu(menus);
 				        System.out.println("Press 2 to Edit Menu\nPress 3 to view Sales\nPress 0 to exit program");
 			            num1 = sc.nextInt();
 				        
