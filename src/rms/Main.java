@@ -12,6 +12,8 @@ public class Main
 		Scanner sc = new Scanner(System.in);
 		int num, num1, numOrder;
 		double totalOrder = 0.00;
+		
+		int min = 1, max = 10; //Uses for random table number
 
 		RMS u = new RMS();
 		Order order = new Order();
@@ -42,6 +44,8 @@ public class Main
 		        {
 		        	if(numOrder == 1)
 			        {
+		        		int randomNumber = order.numOrder(min, max);
+		        		System.out.println("Your table number is " + randomNumber);
 			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
 			        	 for(int i = 0; i < o.length; i ++)
 			         	{

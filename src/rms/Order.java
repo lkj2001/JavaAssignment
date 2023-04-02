@@ -1,6 +1,7 @@
 package rms;
 
 import java.util.*;
+import java.util.Random;
 
 public class Order 
 {
@@ -8,6 +9,7 @@ public class Order
 	private String orderDesc;
     private double orderPrice;
     private double orderTotal;
+    
 	public Double takeOrder(ArrayList<Menu> m)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -53,4 +55,10 @@ public class Order
     {
     	
     }
+	
+	public int numOrder(int min, int max)
+	{
+		Random r = new Random();
+		return r.nextInt(max - min + 1) + min;
+	}
 }
