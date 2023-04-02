@@ -14,10 +14,6 @@ public class Main
 		double totalOrder = 0.00;
 		
 		int min = 1, max = 10; //Uses for random table number
-		
-		int foodId;
-		String foodName;
-		Double foodPrice;
 
 		RMS u = new RMS();
 		Order order = new Order();
@@ -49,6 +45,7 @@ public class Main
 		        	if(numOrder == 1)
 			        {
 		        		int randomNumber = order.numOrder(min, max); //Table number generator
+		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
 		        		System.out.println("Your table number is " + randomNumber);
 			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
 			        	 for(int i = 0; i < o.length; i ++)
@@ -89,15 +86,13 @@ public class Main
 						num2 = sc.nextInt();
 						if(num2 == 1)
 						{
-							System.out.println("Enter Menu ID: ");
-							foodId = sc.nextInt();
-							System.out.println("Enter Menu Food Description: ");
-							foodName = sc.next();
-							System.out.println("Enter Menu Food Price: ");
-							foodPrice = sc.nextDouble();
-							
-							menus.add(new Menu(foodId, foodName, foodPrice));
-							//order.viewMenu(menus); //use to test if the code on top works
+							do
+							{
+								AddMenu(sc, menus);
+								order.viewMenu(menus); //use to test if the code on top works
+								System.out.println("Do you still want to add items? \nPress 1 to continue \nPress 0 to exit");
+								num2 = sc.nextInt();
+							}while(num2 == 1);
 							
 						}
 						else if(num2 == 2)
@@ -123,6 +118,22 @@ public class Main
 				System.out.println("Invalid number, Please insert the correct number");
 			}
 		} while (true);
+	}
+	
+	public static void AddMenu(Scanner sc, ArrayList<Menu> menus)
+	{
+		int foodId;
+		String foodName;
+		Double foodPrice;
+
+		System.out.println("Enter Menu ID: ");
+		foodId = sc.nextInt();
+		System.out.println("Enter Menu Food Description: ");
+		foodName = sc.next();
+		System.out.println("Enter Menu Food Price: ");
+		foodPrice = sc.nextDouble();
+		
+		menus.add(new Menu(foodId, foodName, foodPrice));
 	}
 	
 }	
