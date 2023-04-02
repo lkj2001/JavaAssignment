@@ -10,10 +10,14 @@ public class Main
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		int num, num1, numOrder;
+		int num, num1, num2, numOrder;
 		double totalOrder = 0.00;
 		
 		int min = 1, max = 10; //Uses for random table number
+		
+		int foodId;
+		String foodName;
+		Double foodPrice;
 
 		RMS u = new RMS();
 		Order order = new Order();
@@ -44,7 +48,7 @@ public class Main
 		        {
 		        	if(numOrder == 1)
 			        {
-		        		int randomNumber = order.numOrder(min, max);
+		        		int randomNumber = order.numOrder(min, max); //Table number generator
 		        		System.out.println("Your table number is " + randomNumber);
 			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
 			        	 for(int i = 0; i < o.length; i ++)
@@ -81,6 +85,25 @@ public class Main
 					}
 					else if(num1 == 2)
 					{
+						System.out.println("Press 1 to Add menu items \nPress 2 to Delete menu items");
+						num2 = sc.nextInt();
+						if(num2 == 1)
+						{
+							System.out.println("Enter Menu ID: ");
+							foodId = sc.nextInt();
+							System.out.println("Enter Menu Food Description: ");
+							foodName = sc.next();
+							System.out.println("Enter Menu Food Price: ");
+							foodPrice = sc.nextDouble();
+							
+							menus.add(new Menu(foodId, foodName, foodPrice));
+							//order.viewMenu(menus); //use to test if the code on top works
+							
+						}
+						else if(num2 == 2)
+						{
+							
+						}
 						break;
 					}
 					
