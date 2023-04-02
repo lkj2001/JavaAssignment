@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class Main 
 {	
+	static int foodId;
+	static String foodName;
+	static Double foodPrice;
 	
 	public static void main(String[] args)
 	{
@@ -39,7 +42,6 @@ public class Main
 				order.viewMenu(menus);
 		        System.out.println("Press 1 to Order \nPress 2 to Go back" );
 		        numOrder = sc.nextInt();
-		        
 		        do
 		        {
 		        	if(numOrder == 1)
@@ -55,13 +57,12 @@ public class Main
 			             	System.out.println("Your total order will be RM" + totalOrder);
 			         	}
 			        }
-			        else if(numOrder == 0)
+			        else if(numOrder == 2)
 			        {
-			        	System.out.println("Press 1 to View Menu\n" + "Press 2 to Login\n" + "Press 0 to exit program");
-						num = sc.nextInt();
-						sc.nextLine();
+						break; //Pressing 2 will go back to line 29
 			        }
 		        	break;
+		        	
 		        } while(true);
 			}
 			else if (num == 2)
@@ -71,20 +72,24 @@ public class Main
 				{
 					System.out.println("Login Sucessful");
 					System.out.println("Press 1 to View Menu\n" + "Press 2 to Edit Menu\n" + "Press 3 to view Sales\n"
-					+ "Press 0 to exit program");
+					+ "Press 0 to Go back");
 					num1 = sc.nextInt();
 					if (num1 == 1)
 					{
 						order.viewMenu(menus);
-				        System.out.println("Press 2 to Edit Menu\nPress 3 to view Sales\nPress 0 to exit program");
+				        System.out.println("Press 2 to Edit Menu\nPress 3 to view Sales\nPress 0 to Go back");
 			            num1 = sc.nextInt();
 				        
 					}
 					else if(num1 == 2)
 					{
-						System.out.println("Press 1 to Add menu items \nPress 2 to Delete menu items");
+						System.out.println("Press 1 to Add menu items \nPress 2 to Delete menu items \nPress 0 to go back");
 						num2 = sc.nextInt();
-						if(num2 == 1)
+						if(num2 == 0)
+						{
+							
+						}
+						else if(num2 == 1)
 						{
 							do
 							{
@@ -97,7 +102,8 @@ public class Main
 						}
 						else if(num2 == 2)
 						{
-							
+							DeleteMenu(sc, menus);
+							order.viewMenu(menus); //use to test if the code on top works
 						}
 						break;
 					}
@@ -107,7 +113,8 @@ public class Main
 						break;
 					}
 					break;
-				}
+					}
+				
 				else
 				{
 					System.out.println("Invalid ID or Password");
@@ -118,13 +125,13 @@ public class Main
 				System.out.println("Invalid number, Please insert the correct number");
 			}
 		} while (true);
+		
+		
 	}
 	
 	public static void AddMenu(Scanner sc, ArrayList<Menu> menus)
 	{
-		int foodId;
-		String foodName;
-		Double foodPrice;
+		
 
 		System.out.println("Enter Menu ID: ");
 		foodId = sc.nextInt();
@@ -134,6 +141,22 @@ public class Main
 		foodPrice = sc.nextDouble();
 		
 		menus.add(new Menu(foodId, foodName, foodPrice));
+	}
+	
+	public static void DeleteMenu(Scanner sc, ArrayList<Menu> menus)
+	{
+		System.out.print("Enter menu ID to delete: ");
+	    foodId = sc.nextInt();
+
+	    for (Menu menu : menus) 
+	    {
+	        if (menu.id == foodId) 
+	        {
+	            menus.remove(menu);
+	            System.out.println("Menu item has been deleted.");
+	            return;
+	        }
+	    }
 	}
 	
 }	

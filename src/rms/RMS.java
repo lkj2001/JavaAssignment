@@ -11,10 +11,10 @@ public class RMS
 	
 	public void Login()
 	{
-		System.out.println("Enter your id: ");
+		System.out.println("Enter your Id: ");
 		mId = sc.nextInt();
 		sc.nextLine();
-		System.out.println("Enter your password: ");
+		System.out.println("Enter your Password: ");
 		mPass = sc.nextLine();	
 	}
 }

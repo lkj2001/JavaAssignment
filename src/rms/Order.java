@@ -27,7 +27,7 @@ public class Order
 	        orderDesc = m.get(orderId - 1).itemName;
 	        System.out.println("You have chosen " + orderDesc);
 	        orderPrice = m.get(orderId- 1).itemCost;
-	        System.out.println("The price of the item is " + orderPrice);
+	        System.out.println("The price of the item is RM" + orderPrice);
 	        
 	        //Quantity
 	        System.out.println("How many do you want? ");
