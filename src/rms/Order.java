@@ -40,21 +40,6 @@ public class Order
 	        return orderTotal;
 		
 	}
-	public String getOrderDesc() {
-		return orderDesc;
-	}
-	
-	public int getOrderQty() {
-		return orderQty;
-	}
-	
-	public double getOrderPrice() {
-		return orderPrice;
-	}
-	
-	public double getOrderTotal() {
-		return orderTotal;
-	}
 
 	public void viewMenu(ArrayList<Menu> m)
 	{
