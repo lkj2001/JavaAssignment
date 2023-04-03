@@ -1,19 +1,20 @@
 package rms;
 
 import java.util.*;
-import java.util.Random;
 
 public class Order 
 {
-	private int orderId, orderQty;
-	private String orderDesc;
-    private double orderPrice;
-    private double orderTotal;
+	protected int orderId, orderQty;
+	protected String orderDesc;
+	protected double orderPrice;
+	protected double orderTotal;
     
+    ArrayList<OrderList> orderBill =  new ArrayList<OrderList>();
 	public Double takeOrder(ArrayList<Menu> m)
 	{
 		Scanner sc = new Scanner(System.in);
 		
+		//ArrayList<Order> orderBill =  new ArrayList<Order>();
 		 Iterator<Menu> menuIt = m.iterator(); //Detects and print out the menu.add items
 	        while(menuIt.hasNext())
 	        {
@@ -35,11 +36,26 @@ public class Order
 	        sc.nextLine();
 	        orderTotal = orderPrice * orderQty;
 	        System.out.println("Your total order for " + orderDesc + " is RM" + orderTotal);
-		
+	        orderBill.add(new OrderList (orderDesc, orderQty, orderPrice, orderTotal));
 	        return orderTotal;
 		
 	}
+	public String getOrderDesc() {
+		return orderDesc;
+	}
 	
+	public int getOrderQty() {
+		return orderQty;
+	}
+	
+	public double getOrderPrice() {
+		return orderPrice;
+	}
+	
+	public double getOrderTotal() {
+		return orderTotal;
+	}
+
 	public void viewMenu(ArrayList<Menu> m)
 	{
 		Iterator<Menu> menuIt = m.iterator(); //Detects and print out the menu.add items
@@ -50,11 +66,7 @@ public class Order
             System.out.println(menuIt.next()); //viewMenu
         }
 	}
-	
-	public void displayOrders()
-    {
-    	
-    }
+
 	
 	public int numOrder(int min, int max)
 	{

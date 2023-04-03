@@ -1,5 +1,7 @@
 package rms;
 
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Menu 
 {
@@ -24,5 +26,8 @@ public class Menu
 		return "ID: "  + id + " | "  + " Name: "  + itemName + " | " + "Price " + itemCost + "\n" 
 	+ "----------------------------------------";
 	}
+	/*
+	
+	}*/
 }
 

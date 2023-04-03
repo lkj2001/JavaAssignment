@@ -20,7 +20,7 @@ public class Main
 
 		RMS u = new RMS();
 		Order order = new Order();
-		
+		ArrayList<OrderList> orderBill =  new ArrayList<OrderList>();
 		ArrayList<Menu> menus = new ArrayList<Menu>();
 		
 		menus.add(new Menu(1, "Nasi Lemak", 3.00)); //Need to use toString in order for the Main to detect the parameter
@@ -155,8 +155,13 @@ public class Main
     			         	{
     			         		o[i] = new Order();
     			             	totalOrder += o[i].takeOrder(menus);
+    			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
     			             	System.out.println("Your total order will be RM" + totalOrder);
+
     			         	}
+    			        	Payment payment = new Payment();
+    			        	payment.payMethod();
+ 			             	payment.printReceipt(totalOrder, orderBill);
                         } 
                         else if (numOrder == 2) 
                         {
@@ -263,7 +268,6 @@ public class Main
             }
         }while(level >= 0);
 	}
-	
 	public static void AddMenu(Scanner sc, ArrayList<Menu> menus)
 	{
 		
