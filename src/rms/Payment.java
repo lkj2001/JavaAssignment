@@ -37,10 +37,7 @@ public class Payment {
 	}
 	
 	public void printReceipt(double totalAmount, ArrayList<OrderList> orderBill) {
-		int transCount = 1; //Used for Transaction Number
-		String transNumber;
-		
-		transNumber = "N" + transCount;
+		int transCount = 0; //Used for Transaction Number
 		transCount++;
 		
 		cashReturnAmount = cashAmount - totalAmount;
@@ -48,7 +45,7 @@ public class Payment {
 		System.out.println("Jalan Kontraktor U1/14, Glenpark U1, 40150 Shah Alam, Selangor");
 		System.out.println("---------------------------------------------------------------");
 		
-		System.out.println("Transactional Number: " + transNumber); //Display Transaction Number
+		System.out.println("Transactional Number: N" + transCount); //Display Transaction Number
 		
 		for(int i = 0; i <orderBill.size(); i++){
 			    orderBill.get(i).displayOrders(); // Each element of menus
