@@ -14,7 +14,7 @@ public class Payment {
 	public void payMethod() {
 		int num;
 		do {
-			System.out.println("Enter 1 for cash \n 2 for card ");
+			System.out.println("Enter 1 for cash \n2 for card ");
 			num = sc.nextInt();
 	
 			switch(num) {
@@ -30,17 +30,25 @@ public class Payment {
 					cardNumber = sc.nextInt();
 					break;
 				default:
-					System.out.println("Please enter 1 for cash, 2 for card payment");
+					System.out.println("Please enter 1 for cash \n2 for card payment");
 					break;
 			}
 		}while(num <= 0 && num >= 3);
 	}
 	
 	public void printReceipt(double totalAmount, ArrayList<OrderList> orderBill) {
+		int transCount = 1; //Used for Transaction Number
+		String transNumber;
+		
+		transNumber = "N" + transCount;
+		transCount++;
+		
 		cashReturnAmount = cashAmount - totalAmount;
-		System.out.println("Kopitiam Restaurant");
+		System.out.println("		Kopitiam Restaurant");
 		System.out.println("Jalan Kontraktor U1/14, Glenpark U1, 40150 Shah Alam, Selangor");
-		System.out.println("----------------------------------------------------");
+		System.out.println("---------------------------------------------------------------");
+		
+		System.out.println("Transactional Number: " + transNumber); //Display Transaction Number
 		
 		for(int i = 0; i <orderBill.size(); i++){
 			    orderBill.get(i).displayOrders(); // Each element of menus

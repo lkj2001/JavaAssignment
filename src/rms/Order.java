@@ -2,6 +2,8 @@ package rms;
 
 import java.util.*;
 
+import java.util.UUID;
+
 public class Order 
 {
 	protected int orderId, orderQty;
