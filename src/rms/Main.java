@@ -16,6 +16,8 @@ public class Main
 		int num, loginNum, editNum, numOrder;
 		double totalOrder = 0.00;
 		
+		
+		
 		int min = 1, max = 10; //Uses for random table number
 
 		RMS u = new RMS();
@@ -132,7 +134,7 @@ public class Main
             switch (level) 
             {
                 case 0:
-                    System.out.println("Press 1 to View Menu\n" + "Press 2 to Login\n" + "Press 0 to exit program");
+                    System.out.println("Press 1 to View Menu\n" + "Press 2 to Login\n" + "Press 0 to exit program");                    
                     num = sc.nextInt();
                     sc.nextLine();
                     if (num == 0) 
@@ -296,6 +298,5 @@ public class Main
 	            return;
 	        }
 	    }
-	}
-	
+	}	
 }	

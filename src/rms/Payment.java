@@ -8,6 +8,7 @@ public class Payment {
 	private double cashAmount;
 	private double cashReturnAmount;
 	private int cardNumber;
+	private static int transactionCounter = 100;
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -37,15 +38,12 @@ public class Payment {
 	}
 	
 	public void printReceipt(double totalAmount, ArrayList<OrderList> orderBill) {
-		int transCount = 0; //Used for Transaction Number
-		transCount++;
 		
 		cashReturnAmount = cashAmount - totalAmount;
 		System.out.println("		Kopitiam Restaurant");
 		System.out.println("Jalan Kontraktor U1/14, Glenpark U1, 40150 Shah Alam, Selangor");
+		System.out.println(transNumber());
 		System.out.println("---------------------------------------------------------------");
-		
-		System.out.println("Transactional Number: N" + transCount); //Display Transaction Number
 		
 		for(int i = 0; i <orderBill.size(); i++){
 			    orderBill.get(i).displayOrders(); // Each element of menus
@@ -53,5 +51,12 @@ public class Payment {
 		System.out.println("Cash Received: " + cashAmount);
 		System.out.println("Change amount: " + cashReturnAmount);
 		System.out.println("Thank you for coming, please come again!");
+	}
+	
+	private static String transNumber() //This need to be a static function
+	{
+	    String transactionNumber = "Transaction Number: N" + transactionCounter;
+	    transactionCounter++;
+	    return transactionNumber;
 	}
 }
