@@ -15,7 +15,7 @@ public class Payment {
 	public void payMethod() {
 		int num;
 		do {
-			System.out.println("Enter 1 for cash \n2 for card ");
+			System.out.println("Enter 1 for cash \nPress 2 for card ");
 			num = sc.nextInt();
 	
 			switch(num) {
@@ -37,12 +37,30 @@ public class Payment {
 		}while(num <= 0 && num >= 3);
 	}
 	
-	public void printReceipt(double totalAmount, ArrayList<OrderList> orderBill) {
+	public void printReceiptDine(double totalAmount, ArrayList<OrderList> orderBill) {
 		
 		cashReturnAmount = cashAmount - totalAmount;
 		System.out.println("		Kopitiam Restaurant");
 		System.out.println("Jalan Kontraktor U1/14, Glenpark U1, 40150 Shah Alam, Selangor");
-		System.out.println(transNumber());
+		System.out.print(transNumber());
+		System.out.println("			Dine-In");
+		System.out.println("---------------------------------------------------------------");
+		
+		for(int i = 0; i <orderBill.size(); i++){
+			    orderBill.get(i).displayOrders(); // Each element of menus
+			  }
+		System.out.println("Cash Received: " + cashAmount);
+		System.out.println("Change amount: " + cashReturnAmount);
+		System.out.println("Thank you for coming, please come again!");
+	}
+	
+	public void printReceiptTakeaway(double totalAmount, ArrayList<OrderList> orderBill) {
+		
+		cashReturnAmount = cashAmount - totalAmount;
+		System.out.println("		Kopitiam Restaurant");
+		System.out.println("Jalan Kontraktor U1/14, Glenpark U1, 40150 Shah Alam, Selangor");
+		System.out.print(transNumber());
+		System.out.println("			Takeaway");
 		System.out.println("---------------------------------------------------------------");
 		
 		for(int i = 0; i <orderBill.size(); i++){

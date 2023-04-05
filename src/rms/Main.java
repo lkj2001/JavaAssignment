@@ -13,7 +13,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
-		int num, loginNum, editNum, numOrder;
+		int num, num2, loginNum, editNum, numOrder;
 		double totalOrder = 0.00;
 		
 		
@@ -149,21 +149,46 @@ public class Main
                         numOrder = sc.nextInt();
                         if (numOrder == 1) 
                         {
-                        	int randomNumber = order.numOrder(min, max); //Table number generator
-    		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
-    		        		System.out.println("Your table number is " + randomNumber);
-    			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
-    			        	 for(int i = 0; i < o.length; i ++)
-    			         	{
-    			         		o[i] = new Order();
-    			             	totalOrder += o[i].takeOrder(menus);
-    			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
-    			             	System.out.println("Your total order will be RM" + totalOrder);
+                        	System.out.println("Press 1 for Dine-In \nPress 2 for Takeaway"); //Typing anything other than 1 or 2 will
+                        	//bring you back to main menu
+                        	num2 = sc.nextInt();
+                        	
+                        	if(num2 == 1)
+                        	{
+                        		int randomNumber = order.numOrder(min, max); //Table number generator
+        		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
+        		        		System.out.println("Your table number is " + randomNumber);
+        			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
+        			        	 for(int i = 0; i < o.length; i ++)
+        			         	{
+        			         		o[i] = new Order();
+        			             	totalOrder += o[i].takeOrder(menus);
+        			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+        			             	System.out.println("Your total order will be RM" + totalOrder);
 
-    			         	}
-    			        	Payment payment = new Payment();
-    			        	payment.payMethod();
- 			             	payment.printReceipt(totalOrder, orderBill);
+        			         	}
+        			        	Payment payment = new Payment();
+        			        	payment.payMethod();
+     			             	payment.printReceiptDine(totalOrder, orderBill);
+                        	}
+                        	else if(num2 == 2)
+                        	{
+                        		int randomNumber = order.numOrder(min, max); //Table number generator
+        		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
+        		        		System.out.println("Your table number is " + randomNumber);
+        			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
+        			        	 for(int i = 0; i < o.length; i ++)
+        			         	{
+        			         		o[i] = new Order();
+        			             	totalOrder += o[i].takeOrder(menus);
+        			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+        			             	System.out.println("Your total order will be RM" + totalOrder);
+
+        			         	}
+        			        	Payment payment = new Payment();
+        			        	payment.payMethod();
+     			             	payment.printReceiptTakeaway(totalOrder, orderBill);
+                        	}
                         } 
                         else if (numOrder == 2) 
                         {
