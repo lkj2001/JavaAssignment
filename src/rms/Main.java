@@ -15,9 +15,7 @@ public class Main
 		Scanner sc = new Scanner(System.in);
 		int num, num2, loginNum, editNum, numOrder;
 		double totalOrder = 0.00;
-		
-		
-		
+      	SalesReport sr = new SalesReport();
 		int min = 1, max = 10; //Uses for random table number
 
 		RMS u = new RMS();
@@ -165,17 +163,16 @@ public class Main
         			             	totalOrder += o[i].takeOrder(menus);
         			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
         			             	System.out.println("Your total order will be RM" + totalOrder);
-
         			         	}
         			        	Payment payment = new Payment();
         			        	payment.payMethod();
-     			             	payment.printReceiptDine(totalOrder, orderBill);
+     			             	payment.printReceiptFormat(totalOrder, orderBill);
+     			             	sr.sumEarnings(totalOrder);
+     			             	orderBill.clear();
                         	}
                         	else if(num2 == 2)
                         	{
-                        		int randomNumber = order.numOrder(min, max); //Table number generator
-        		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
-        		        		System.out.println("Your table number is " + randomNumber);
+        		        		System.out.println("This is a takeaway");
         			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
         			        	 for(int i = 0; i < o.length; i ++)
         			         	{
@@ -183,11 +180,13 @@ public class Main
         			             	totalOrder += o[i].takeOrder(menus);
         			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
         			             	System.out.println("Your total order will be RM" + totalOrder);
-
+        			             	
         			         	}
         			        	Payment payment = new Payment();
         			        	payment.payMethod();
-     			             	payment.printReceiptTakeaway(totalOrder, orderBill);
+     			             	payment.printReceiptFormat(totalOrder, orderBill);
+     			             	sr.sumEarnings(totalOrder);
+     			             	orderBill.clear();
                         	}
                         } 
                         else if (numOrder == 2) 
@@ -249,7 +248,8 @@ public class Main
                         }
                         else if (loginNum == 3) 
                         {
-                            level = 3; // go to view sales menu
+                            //level = 3; // go to view sales menu
+                            sr.printSalesReport();
                         } 
                         else 
                         {

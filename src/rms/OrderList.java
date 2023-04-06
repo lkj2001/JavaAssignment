@@ -16,7 +16,6 @@ public class OrderList {
     {
 		System.out.println( " Name: "  + orderDesc + " | " + "Price " + orderPrice + " | " + "Qty" + orderQty + " | " + "Order Total Price " + orderTotal + "\n" 
 				+ "----------------------------------------");
-		//System.out.println("asd");
 		
     }
 }
