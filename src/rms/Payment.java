@@ -7,10 +7,9 @@ import java.util.Scanner;
 
 public  class Payment {
 	private String paymentType;
-	public double cashAmount;
-	public double cashReturnAmount;
-	protected int cardNumber;
-	protected static int transactionCounter = 100;
+	private double cashAmount;
+	private double cashReturnAmount;
+	private static int transactionCounter = 100;
 	
 	Scanner sc = new Scanner(System.in);
 	

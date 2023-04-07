@@ -3,10 +3,10 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 public class SalesReport {
-	public double totalDayEarnings;
-	public double totalMonthEarnings;
-	public int currentMonth;
-	public int currentDay;
+	private double totalDayEarnings;
+	private double totalMonthEarnings;
+	private int currentMonth;
+	private int currentDay;
 	
 	Date date = new Date();
 	LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
