@@ -51,7 +51,7 @@ public  class Payment {
 		cashReturnAmount = cashAmount - totalAmount;
 		System.out.println("		Kopitiam Restaurant");
 		System.out.println("Jalan Kontraktor U1/14, Glenpark U1, 40150 Shah Alam, Selangor");
-		System.out.print(transNumber());
+		System.out.println(transNumber());
 		System.out.println("---------------------------------------------------------------");
 		
 		for(int i = 0; i <orderBill.size(); i++){
