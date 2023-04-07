@@ -17,6 +17,8 @@ public class Main
 		double totalOrder = 0.00;
       	SalesReport sr = new SalesReport();
 		int min = 1, max = 10; //Uses for random table number
+		
+		boolean continueOrder = true;
 
 		RMS u = new RMS();
 		Order order = new Order();
@@ -61,15 +63,31 @@ public class Main
                             		int randomNumber = order.numOrder(min, max); //Table number generator
             		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
             		        		System.out.println("Your table number is " + randomNumber);
-            			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
-            			        	 for(int i = 0; i < o.length; i ++)
-            			         	{
-            			         		o[i] = new Order();
-            			             	totalOrder += o[i].takeOrder(menus);
-            			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
-            			             	System.out.println("Your total order will be RM" + totalOrder);
-            			         	}
+            		        		continueOrder = true;
+            		        		while(continueOrder)
+            		        		{
+                			        	Order[] o = new Order[1]; //the array determines how many times you can takeOrder
+               			        	 for(int i = 0; i < o.length; i ++)
+               			         	{
+               			         		o[i] = new Order();
+               			             	totalOrder += o[i].takeOrder(menus);
+               			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+               			             	System.out.println("Your total order will be RM" + totalOrder);
+               			             	System.out.println("Would you like to order again?");
+               			             	System.out.println("Press 1 to order again \nPress 2 to stop ordering");
+               			             	int keepOrder = sc.nextInt();
+               			             	if(keepOrder == 1)
+               			             	{
+               			             		continueOrder = true;
+               			             	}
+               			             	else if(keepOrder == 2)
+               			             	{
+               			             		continueOrder = false;
+               			             	}
+               			         	}
+            		        		}
             			        	Payment payment = new Payment();
+            			        	System.out.println("Your total order will be RM" + totalOrder);
             			        	payment.payMethod();
          			             	payment.printReceiptFormat(totalOrder, orderBill);
          			             	sr.sumEarnings(totalOrder);
@@ -78,16 +96,31 @@ public class Main
                             	else if(num2 == 2)
                             	{
             		        		System.out.println("This is a takeaway");
-            			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
-            			        	 for(int i = 0; i < o.length; i ++)
-            			         	{
-            			         		o[i] = new Order();
-            			             	totalOrder += o[i].takeOrder(menus);
-            			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
-            			             	System.out.println("Your total order will be RM" + totalOrder);
-            			             	
-            			         	}
+            		        		continueOrder = true;
+            		        		while(continueOrder)
+            		        		{
+                			        	Order[] o = new Order[1]; //the array determines how many times you can takeOrder
+               			        	 for(int i = 0; i < o.length; i ++)
+               			         	{
+               			         		o[i] = new Order();
+               			             	totalOrder += o[i].takeOrder(menus);
+               			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+               			             	System.out.println("Your total order will be RM" + totalOrder);
+               			             	System.out.println("Would you like to order again?");
+               			             	System.out.println("Press 1 to order again \nPress 2 to stop ordering");
+               			             	int keepOrder = sc.nextInt();
+               			             	if(keepOrder == 1)
+               			             	{
+               			             		continueOrder = true;
+               			             	}
+               			             	else if(keepOrder == 2)
+               			             	{
+               			             		continueOrder = false;
+               			             	}
+               			         	}
+            		        		}
             			        	Payment payment = new Payment();
+            			        	System.out.println("Your total order will be RM" + totalOrder);
             			        	payment.payMethod();
          			             	payment.printReceiptFormat(totalOrder, orderBill);
          			             	sr.sumEarnings(totalOrder);

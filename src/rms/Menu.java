@@ -16,11 +16,6 @@ public class Menu
 		this.itemCost = itemCost;
 	}
 	
-//	public void display()
-//	{
-//		System.out.println("id " + id + "\n" + "name: " + itemName + "\n" + "cost " + itemCost);
-//	}
-	
 	public String toString()
 	{
 		return "ID: "  + id + " | "  + " Name: "  + itemName + " | " + "Price " + itemCost + "\n" 

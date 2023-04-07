@@ -30,7 +30,6 @@ public  class Payment {
 				case 2:
 					paymentType = "Card";
 					System.out.println("Payment type selected Card");
-					cardNumber = sc.nextInt();
 					break;
 				default:
 					System.out.println("Please enter 1 for cash \n2 for card payment");
