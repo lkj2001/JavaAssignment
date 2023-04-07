@@ -67,6 +67,7 @@ public class Main
             		        		while(continueOrder)
             		        		{
                 			        	Order[] o = new Order[1]; //the array determines how many times you can takeOrder
+                			        	totalOrder = 0.00;
                			        	 for(int i = 0; i < o.length; i ++)
                			         	{
                			         		o[i] = new Order();
@@ -108,6 +109,7 @@ public class Main
             		        		while(continueOrder)
             		        		{
                 			        	Order[] o = new Order[1]; //the array determines how many times you can takeOrder
+             			             	totalOrder = 0.00;
                			        	 for(int i = 0; i < o.length; i ++)
                			         	{
                			         		o[i] = new Order();
