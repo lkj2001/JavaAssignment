@@ -177,6 +177,7 @@ public class Main
                 	{
                 		do
                 		{
+                			order.viewMenu(menus);
                     		AddMenu(sc, menus);
                             order.viewMenu(menus); //use to test if the code on top works
                             System.out.println("Do you still want to add items? \nPress 1 to continue \nPress 0 to exit");
@@ -188,11 +189,12 @@ public class Main
                     {
                         do
                         {
+                        	order.viewMenu(menus);
                         	DeleteMenu(sc, menus);
                             order.viewMenu(menus);
                             System.out.println("Do you still want to delete items? \nPress 1 to continue \nPress 0 to exit");
                             editNum = sc.nextInt();
-                        }while(editNum == 2);
+                        }while(editNum == 1);
                     } 
                     else if (editNum != 1) 
                     {
@@ -221,17 +223,24 @@ public class Main
 	
 	public static void DeleteMenu(Scanner sc, ArrayList<Menu> menus)
 	{
-		System.out.print("Enter menu ID to delete: ");
-	    foodId = sc.nextInt();
+		if(!menus.isEmpty())
+		{
+			System.out.print("Enter menu ID to delete: ");
+		    foodId = sc.nextInt();
 
-	    for (Menu menu : menus) 
-	    {
-	        if (menu.id == foodId) 
-	        {
-	            menus.remove(menu);
-	            System.out.println("Menu item has been deleted.");
-	            return;
-	        }
-	    }
+		    for (Menu menu : menus) 
+		    {
+		    	if (menu.id == foodId) 
+		        {
+		            menus.remove(menu);
+		            System.out.println("Menu item has been deleted.");
+		            return;
+		        }
+		    }
+		}
+		else
+		{
+			System.out.println("Menu is empty");
+		}
 	}	
 }	
