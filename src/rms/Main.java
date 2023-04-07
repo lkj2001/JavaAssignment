@@ -45,61 +45,68 @@ public class Main
                     } 
                     else if (num == 1) 
                     {
-                        order.viewMenu(menus);
-                        System.out.println("Press 1 to Order \nPress 2 to Go back");
-                        numOrder = sc.nextInt();
-                        if (numOrder == 1) 
-                        {
-                        	System.out.println("Press 1 for Dine-In \nPress 2 for Takeaway"); //Typing anything other than 1 or 2 will
-                        	//bring you back to main menu
-                        	num2 = sc.nextInt();
-                        	
-                        	if(num2 == 1)
-                        	{
-                        		int randomNumber = order.numOrder(min, max); //Table number generator
-        		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
-        		        		System.out.println("Your table number is " + randomNumber);
-        			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
-        			        	 for(int i = 0; i < o.length; i ++)
-        			         	{
-        			         		o[i] = new Order();
-        			             	totalOrder += o[i].takeOrder(menus);
-        			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
-        			             	System.out.println("Your total order will be RM" + totalOrder);
-        			         	}
-        			        	Payment payment = new Payment();
-        			        	payment.payMethod();
-     			             	payment.printReceiptFormat(totalOrder, orderBill);
-     			             	sr.sumEarnings(totalOrder);
-     			             	orderBill.clear();
-                        	}
-                        	else if(num2 == 2)
-                        	{
-        		        		System.out.println("This is a takeaway");
-        			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
-        			        	 for(int i = 0; i < o.length; i ++)
-        			         	{
-        			         		o[i] = new Order();
-        			             	totalOrder += o[i].takeOrder(menus);
-        			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
-        			             	System.out.println("Your total order will be RM" + totalOrder);
-        			             	
-        			         	}
-        			        	Payment payment = new Payment();
-        			        	payment.payMethod();
-     			             	payment.printReceiptFormat(totalOrder, orderBill);
-     			             	sr.sumEarnings(totalOrder);
-     			             	orderBill.clear();
-                        	}
-                        } 
-                        else if (numOrder == 2) 
-                        {
-                            level = 0; // go back to main menu
-                        } 
-                        else 
-                        {
-                            System.out.println("Invalid input");
-                        }
+                    	if(!menus.isEmpty())
+                    	{
+                    		order.viewMenu(menus);
+                            System.out.println("Press 1 to Order \nPress 2 to Go back");
+                            numOrder = sc.nextInt();
+                            if (numOrder == 1) 
+                            {
+                            	System.out.println("Press 1 for Dine-In \nPress 2 for Takeaway"); //Typing anything other than 1 or 2 will
+                            	//bring you back to main menu
+                            	num2 = sc.nextInt();
+                            	
+                            	if(num2 == 1)
+                            	{
+                            		int randomNumber = order.numOrder(min, max); //Table number generator
+            		        		//int randomNumber = Order.numOrder(min, max); //Only usable when we turn numOrder into a static method
+            		        		System.out.println("Your table number is " + randomNumber);
+            			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
+            			        	 for(int i = 0; i < o.length; i ++)
+            			         	{
+            			         		o[i] = new Order();
+            			             	totalOrder += o[i].takeOrder(menus);
+            			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+            			             	System.out.println("Your total order will be RM" + totalOrder);
+            			         	}
+            			        	Payment payment = new Payment();
+            			        	payment.payMethod();
+         			             	payment.printReceiptFormat(totalOrder, orderBill);
+         			             	sr.sumEarnings(totalOrder);
+         			             	orderBill.clear();
+                            	}
+                            	else if(num2 == 2)
+                            	{
+            		        		System.out.println("This is a takeaway");
+            			        	Order[] o = new Order[3]; //the array determines how many times you can takeOrder
+            			        	 for(int i = 0; i < o.length; i ++)
+            			         	{
+            			         		o[i] = new Order();
+            			             	totalOrder += o[i].takeOrder(menus);
+            			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+            			             	System.out.println("Your total order will be RM" + totalOrder);
+            			             	
+            			         	}
+            			        	Payment payment = new Payment();
+            			        	payment.payMethod();
+         			             	payment.printReceiptFormat(totalOrder, orderBill);
+         			             	sr.sumEarnings(totalOrder);
+         			             	orderBill.clear();
+                            	}
+                            } 
+                            else if (numOrder == 2) 
+                            {
+                                level = 0; // go back to main menu
+                            } 
+                            else 
+                            {
+                                System.out.println("Invalid input");
+                            }
+                    	} 
+                    	else
+                    	{
+                    		System.out.println("Menu is empty");
+                    	}
                     } 
                     else if (num == 2) 
                     {
