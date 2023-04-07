@@ -86,6 +86,14 @@ public class Main
                			             	}
                			         	}
             		        		}
+//            		        		Order[] o = new Order[1]; //the array determines how many times you can takeOrder
+//              			        	 for(int i = 0; i < o.length; i ++)
+//              			         	{
+//              			         		o[i] = new Order();
+//              			             	totalOrder += o[i].takeOrder(menus);
+//              			             	orderBill.add(new OrderList (o[i].orderDesc, o[i].orderQty, o[i].orderPrice, o[i].orderTotal)); 
+//              			             	System.out.println("Your total order will be RM" + totalOrder);
+//              			         	}
             			        	Payment payment = new Payment();
             			        	System.out.println("Your total order will be RM" + totalOrder);
             			        	payment.payMethod();
