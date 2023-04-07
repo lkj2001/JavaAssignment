@@ -23,10 +23,10 @@ public class Main
 		ArrayList<OrderList> orderBill =  new ArrayList<OrderList>();
 		ArrayList<Menu> menus = new ArrayList<Menu>();
 		
-		menus.add(new Menu(1, "Nasi Lemak", 3.00)); //Need to use toString in order for the Main to detect the parameter
-        menus.add(new Menu(2, "Mee Hoon", 3.00));
+		menus.add(new Menu(1, "Nasi Lemak", 5.00)); //Need to use toString in order for the Main to detect the parameter
+        menus.add(new Menu(2, "Mee Hoon", 4.00));
         menus.add(new Menu(3, "Roti Canai", 3.00));
-        menus.add(new Menu(4, "Bread", 3.00));
+        menus.add(new Menu(4, "Laksa", 5.00));
 
         
         int level = 0; // current menu level
@@ -175,18 +175,24 @@ public class Main
                 	}
                 	else if(editNum == 1)
                 	{
-                		AddMenu(sc, menus);
-                        order.viewMenu(menus); //use to test if the code on top works
-                        System.out.println("Do you still want to add items? \nPress 1 to continue \nPress 0 to exit");
-                        editNum = sc.nextInt();
+                		do
+                		{
+                    		AddMenu(sc, menus);
+                            order.viewMenu(menus); //use to test if the code on top works
+                            System.out.println("Do you still want to add items? \nPress 1 to continue \nPress 0 to exit");
+                            editNum = sc.nextInt();
+                		}while(editNum == 1);
                         
                 	} 
                 	else if (editNum == 2) 
                     {
-                        DeleteMenu(sc, menus);
-                        order.viewMenu(menus);
-                        System.out.println("Do you still want to delete items? \nPress 1 to continue \nPress 0 to exit");
-                        editNum = sc.nextInt();
+                        do
+                        {
+                        	DeleteMenu(sc, menus);
+                            order.viewMenu(menus);
+                            System.out.println("Do you still want to delete items? \nPress 1 to continue \nPress 0 to exit");
+                            editNum = sc.nextInt();
+                        }while(editNum == 2);
                     } 
                     else if (editNum != 1) 
                     {
